@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Professor Xavier Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="Chatbot.css">
+</head>
+<body>
+    <div class="chatbox">
+        <div class="chatlogs">
+
+            <div class="chat friend">
+                <div class="user-photo"><img src="xavier.jpg"></div>
+                <p class="chat-message">Hello..My Name Is Professor Xavier</p>
+            </div>
+            <div class="chat friend">
+                <div class="user-photo"><img src="xavier.jpg"></div>
+                <p class="chat-message">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+It has survived not only five centuries, but also the leap into electronic typesetting,
+remaining essentially unchanged.
+It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            </div>
+            <div class="chat friend">
+                <div class="user-photo"><img src="xavier.jpg"></div>
+                <p class="chat-message">Contrary to popular belief, Lorem Ipsum is not simply random text.
+                    It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                    Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
+                    looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+                    and going through the cites of the word in classical literature, discovered the undoubtable source.
+                    Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum"
+                    (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory
+                    of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
+                    "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+he standardchunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+            </div>
+            <div class="chat self">
+                <div class="user-photo"><img src="user.jpg"></div>
+                <p class="chat-message">Hello..My Friend</p>
+            </div>
+            <div class="chat self">
+                <div class="user-photo"><img src="user.jpg"></div>
+                <p class="chat-message">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+ The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+'Content here, content here', making it look like readable English.
+Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
+and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+</p>
+            </div>
+        </div>
+
+        <div class="chat-form">
+        <textarea></textarea>
+        <button>Send</button>
+        </div>
+        <script>
+            function getBotResponse() {
+              var rawText = $("#textInput)
+              var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+              $("#textInput").val("");
+              $("#chatbox").append(userHtml);
+              document.getElementById('userInput').scrollIntoView({block: 'start', behaviour: 'smooth'});
+              $.get("/get", (msg: rawText)).done(function(data) {
+                 var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                 $("#chatbox").append(botHtml);
+                 document.getElementById('userInput').scrollIntoView({block: 'start', behaviour: 'smooth'});
+            });
+            }
+            $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+                }
+            }};
+            $("#buttonInput").click(function() {
+            getBotResponse();
+            })
+
+
+
+
+
+
+
+        </script>
+    </div>
+
+
+</body>
+</html>
